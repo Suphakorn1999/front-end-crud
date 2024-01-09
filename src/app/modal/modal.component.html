@@ -1,0 +1,19 @@
+<form class="flex items-center justify-center flex-col p-10" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <mat-label>id</mat-label>
+        <input matInput placeholder="product name" [value]="data.id" disabled>
+      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Product</mat-label>
+      <input matInput placeholder="product name" [value]="data.name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="product price" [value]="data.price" formControlName="price" onlyNumber>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>description</mat-label>
+      <input matInput placeholder="product description" [value]="data.description" formControlName="description">
+    </mat-form-field>
+    <button mat-raised-button class="bg-green-500 text-white" type="submit">save</button>
+</form>

@@ -1,0 +1,38 @@
+<form class="flex w-full items-center justify-center min-w-[100vw] pt-20 flex-col" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Product</mat-label>
+      <input matInput placeholder="product name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="product price" formControlName="price" onlyNumber>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>description</mat-label>
+      <input matInput placeholder="product description" formControlName="description">
+    </mat-form-field>
+    <button mat-raised-button class="bg-green-500 text-white" type="submit">save</button>
+</form>
+<div class="p-10">
+<table class="w-full p-10 border">
+  <thead>
+    <tr>
+      <th class="border px-4 py-2 border-black">Name</th>
+      <th class="border px-4 py-2 border-black">Price</th>
+      <th class="border px-4 py-2 border-black">Description</th>
+      <th class="border px-4 py-2 border-black">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td class="border px-4 py-2 border-black">{{product.name}}</td>
+      <td class="border px-4 py-2 border-black">{{product.price}}</td>
+      <td class="border px-4 py-2 border-black">{{product.description}}</td>
+      <td class="border px-4 py-2 border-black">
+        <button mat-raised-button class="bg-green-500 text-white mr-2" (click)="onEdit(product)">edit</button>
+        <button mat-raised-button class="bg-red-500 text-white" (click)="onDelete(product)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
